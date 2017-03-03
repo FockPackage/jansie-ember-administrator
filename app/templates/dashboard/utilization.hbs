@@ -1,0 +1,40 @@
+{{#site-header title='访问量数据'}}
+  {{ui-icon 'ui-16px-3_chat-46' 32}}
+{{/site-header}}
+{{#ui-grid}}
+  <div class='column trisector'>
+    {{#ui-pane title='主页' icon='users-16px_single-body' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.DashboardCount}}</h2>
+        {{ui-progress model.totalDataByMooth.DashboardCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.DashboardCount  model.totalData.DashboardCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.DashboardCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.DashboardCount  model.totalData.DashboardCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.DashboardCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.DashboardCount  model.totalData.DashboardCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='设计端' icon='users-16px-2_a-heart' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.DesignCount}}</h2>
+        {{ui-progress model.totalDataByMooth.DesignCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.DesignCount  model.totalData.DesignCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.DesignCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.DesignCount  model.totalData.DesignCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.DesignCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.DesignCount  model.totalData.DesignCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='数据端' icon='business-16px_building' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.DataCount}}</h2>
+        {{ui-progress model.totalDataByMooth.DataCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.DataCount  model.totalData.DataCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.DataCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.DataCount  model.totalData.DataCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.DataCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.DataCount  model.totalData.DataCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+{{/ui-grid}}
+
+
+{{#data-table detailList=model.detailList title='访问量列表' apiName='reqUserViewList' table-datas=(route-action 'getTableDatas') as |option|}}
+  {{ui-table option.detailList select=true currentRow=currentRow handleSort=(action option.handleSort)}}
+{{/data-table}}

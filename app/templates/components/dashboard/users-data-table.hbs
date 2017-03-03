@@ -1,0 +1,9 @@
+{{#ui-table detailList select=true currentRow=currentRow handleSort=(action handleSort) as |currentRow|}}
+  {{#ui-dropdown text='设置'
+                 icon='ui-16px-1_settings-gear-63'
+                 size='medium'
+                 horizontalPosition="auto"}}
+    {{ui-item '验证' 'ui-16px-2_grid-45'  click=(action 'handleEmailVerification' currentRow)}}
+    {{ui-item (if (eq currentRow.EnableFlag 'Y') '锁定' '解锁') 'ui-16px-1_lock' click=(action 'handleUserLock' currentRow)}}
+  {{/ui-dropdown}}
+{{/ui-table}}

@@ -1,0 +1,47 @@
+:root {
+  /*Gray Colors*/
+  --midnight: #212F40;
+  --catalina-blue: #2C405A; /*Backgrounds, Header Text Styles*/
+  --fiord: #3F536E; /*Text styles*/
+  --nepal: #8DABC4; /*Text styles*/
+  --light-steel-blue: #A8C6DF; /*Active (Clickable) icon*/
+  --botticelli: #C5D9E8; /*Passive icons*/
+  --zumthor: #ECF5FD; /*Main Background*/
+  --alabaster: #FAFBFC; /*Divider Background, Grey Block Background*/
+  --white: #FFF;
+  --black: #000;
+
+  /*Active Colors*/
+  --cool-blue: #0093EE;
+  --dull-lime: #4ECE3D;
+  --ruddy: #FF151F;
+  --cool-blue-active: #0079C4;
+  --dull-lime-active: #40B630;
+
+  /*Branding Colors*/
+  --soft-purple: #AB7DF6;
+  --java: #26C2C9;
+  --supernova: #FACA00;
+  --lime: #81C926;
+  --pumpkin: #FD7B1F;
+
+  /*Typography*/
+  --font-size: 1rem;
+  --font-bold: 600;
+
+  /*Border Radius*/
+  --border-radius-s: 2px;
+  --border-radius-m: 3px;
+  --border-radius-l: 4px;
+  --border-radius-xl: calc(var(--offset) / 2);
+
+  /*Offset*/
+  --offset: 2rem;
+
+  /*Z-index*/
+  --ui-dropdown: 2;
+  --ui-popup: calc(var(--ui-dropdown) + 1);
+  --ui-modal: calc(var(--ui-popup) + 1);
+  --ui-loading: calc(var(--ui-modal) + 1);
+  --ui-notification: calc(var(--ui-loading) + 1);
+}

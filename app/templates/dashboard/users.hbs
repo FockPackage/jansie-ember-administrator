@@ -1,0 +1,44 @@
+{{#site-header title='用户数据'}}
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32"> <g> <path d="M27.711,21.887C25.332,21.026,21.368,20,16,20s-9.332,1.026-11.711,1.887 C2.322,22.598,1,24.486,1,26.587V31c0,0.552,0.448,1,1,1h28c0.552,0,1-0.448,1-1v-4.413C31,24.486,29.678,22.598,27.711,21.887z"></path> <path d="M16,18c4.411,0,8-3.589,8-8V8c0-4.411-3.589-8-8-8S8,3.589,8,8v2C8,14.411,11.589,18,16,18z"></path> </g> </svg>
+{{/site-header}}
+{{#ui-grid}}
+  <div class='column trisector'>
+    {{#ui-pane title='全部用户' icon='users-16px_single-body' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.UserCount}}</h2>
+        {{ui-progress model.totalDataByMooth.UserCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.UserCount  model.totalData.UserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.UserCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.UserCount  model.totalData.UserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.UserCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.UserCount  model.totalData.UserCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='免费用户' icon='users-16px-2_a-heart' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.FreeUserCount}}</h2>
+        {{ui-progress model.totalDataByMooth.FreeUserCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.FreeUserCount  model.totalData.FreeUserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.FreeUserCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.FreeUserCount  model.totalData.FreeUserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.FreeUserCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.FreeUserCount  model.totalData.FreeUserCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='高级用户' icon='business-16px_building' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.AdUserCount}}</h2>
+        {{ui-progress model.totalDataByMooth.AdUserCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.AdUserCount  model.totalData.AdUserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.AdUserCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.AdUserCount  model.totalData.AdUserCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.AdUserCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.AdUserCount  model.totalData.AdUserCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+{{/ui-grid}}
+
+{{#data-table detailList=model.detailList title='用户列表' apiName='reqUserDetailList' table-datas=(route-action 'getTableDatas') as |option|}}
+  {{dashboard/users-data-table
+  detailList=option.detailList
+  pageIndexs=option.pageIndexs
+  currentPage=option.currentPage
+  handleSort=(action option.handleSort)
+  handlerefreshCurrentpage=(action option.handlerefreshCurrentpage)}}
+{{/data-table}}

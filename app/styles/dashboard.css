@@ -1,0 +1,46 @@
+@import "custom";
+
+:global(.ui-pane) {
+  &:global(.dashboard) {
+    & > div {
+      display: flex;
+      align-items: center;
+      & section {
+        flex-grow: 1;
+        & > h1 {
+          & + :global(.ui-progress) {
+            &:not([data-state="label"]) {
+              margin-top: calc(var(--offset) / 4);
+            }
+          }
+        }
+        & :global(.heading-chart-a) {
+          display: flex;
+          align-items: center;
+          & svg {
+            height: calc(var(--offset) * 2.1);
+          }
+          & h1 {
+            margin-left: calc(var(--offset) / 2);
+            & span {
+              display: block;
+              color: var(--nepal);
+              font-size: calc(var(--font-size) * .8);
+              margin-left: calc(var(--offset) / 8);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*------------------- responsive -------------------*/
+
+:global(html.desktop) {
+
+}
+
+:global(html.mobile) {
+
+}

@@ -1,0 +1,20 @@
+{{#site-header title='题型列表'}}
+  {{ui-icon 'ui-16px-3_chat-46' 32}}
+{{/site-header}}
+{{#ui-grid}}
+
+  {{#each model.header as |item|}}
+    <div class='column trisector'>
+      {{#ui-pane title=item.name icon='users-16px_single-body' iconColor='#8DABC4'}}
+        <section>
+          <h2>{{add-commas item.count}}</h2>
+          {{ui-progress  size='tiny' color='purple' progress=item.progress percent=true position='out'}}
+        </section>
+      {{/ui-pane}}
+    </div>
+  {{/each}}
+{{/ui-grid}}
+
+
+{{ui-table model.table class='user-details' select=true}}
+

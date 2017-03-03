@@ -1,0 +1,27 @@
+
+{{#ui-navigation local-class="header-nav"
+                 logo='administrator-logo desktop tablet'
+                 logoWidth='200px'
+                 svgWidth='165'
+                 svgHeight='22'
+                 sidebar="desktop tablet"}}
+
+  {{#if  (device 'desktop')}}
+    <div local-class="router-item">
+      {{ui-item '数据面板'  activeColor='transparent' route='dashboard'}}
+      {{ui-item 'Enterprise' activeColor='transparent'}}
+      {{ui-item 'User' activeColor='transparent'}}
+      {{ui-item 'Form' activeColor='transparent'}}
+      {{ui-item 'System' activeColor='transparent'}}
+      {{ui-item 'Notification' activeColor='transparent'}}
+      {{ui-item 'Order' activeColor='transparent'}}
+      {{ui-item 'Task' activeColor='transparent'}}
+    </div>
+  {{else}}
+    {{header-nav/router-dropdown}}
+  {{/if}}
+  <div local-class="nav-right">
+    {{header-nav/notification-dropdown}}
+    {{header-nav/account-dropdown username=username}}
+  </div>
+{{/ui-navigation}}

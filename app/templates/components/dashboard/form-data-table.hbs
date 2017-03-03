@@ -1,0 +1,13 @@
+{{#ui-table detailList select=true currentRow=currentRow handleSort=(action handleSort) as |currentRow|}}
+  {{#ui-dropdown text='设置'
+                 icon='ui-16px-1_settings-gear-63'
+                 size='medium'
+                 horizontalPosition="auto"}}
+    {{ui-item (if currentRow.TopFlag '取消置顶' '置顶') 'arrows-16px-1_tail-triangle-up' click=(action 'handleFormTop' currentRow)}}
+    {{ui-item (if (eq currentRow.Qstatus '系统锁定') '取消锁定' '锁定') 'ui-16px-1_lock' click=(action 'handleFormLock' currentRow)}}
+    {{ui-item '问卷详情' 'ui-16px-2_grid-45' disabled=true}}
+    {{ui-item '问卷设计' 'ui-16px-1_pencil' click=(action 'handleLinkToDesign' currentRow)}}
+    {{ui-item '查看问卷数据' 'ui-16px-3_heart' click=(action 'handleLinkToDashboard' currentRow)}}
+    {{ui-item '删除' 'ui-16px-1_trash-simple' click=(action 'handleFormDelete' currentRow)}}
+  {{/ui-dropdown}}
+{{/ui-table}}

@@ -1,0 +1,18 @@
+{{#unless login}}
+  {{header-nav/nav}}
+{{/unless}}
+
+
+
+<div local-class={{concat "main " (if login 'login')}} class={{concat 'theme ' (if login 'bright' 'dark')}}>
+  {{outlet}}
+</div>
+
+{{#if isShow}}
+  {{login-page state=relogin}}
+{{/if}}
+{{svg-icon}}
+{{icon-addon}}
+{{ui-notification}}
+
+{{loading-slider duration=250}}

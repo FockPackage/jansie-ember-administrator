@@ -1,0 +1,46 @@
+@import "custom";
+
+.header-nav {
+  background-color: var(--cool-blue);
+}
+
+.logo {
+  width: calc(200px - 1rem);
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.router-item {
+  display: flex;
+  margin-left: 1rem;
+  & > a {
+    &:not(:last-of-type) {
+      margin-right: calc(var(--offset) / 4);
+    }
+  }
+}
+
+.nav-right {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/*------------------- responsive -------------------*/
+
+:global(html.desktop) {
+  & .header-nav {
+    min-width: 1170px;
+  }
+}
+
+:global(html.mobile) {
+  & .nav-right {
+    & :global(.ui-button) {
+      & span {
+        display: none;
+      }
+    }
+  }
+}

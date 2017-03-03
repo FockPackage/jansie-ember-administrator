@@ -1,0 +1,41 @@
+{{#site-header title='支出数据'}}
+  {{ui-icon 'ui-16px-3_chat-46' 32}}
+{{/site-header}}
+{{#ui-grid}}
+  <div class='column trisector'>
+    {{#ui-pane title='总支出金额' icon='users-16px_single-body' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.TotalCapital}}</h2>
+        {{ui-progress model.totalDataByMooth.TotalCapital subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.TotalCapital  model.totalData.TotalCapital) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.TotalCapital subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.TotalCapital  model.totalData.TotalCapital) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.TotalCapital subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.TotalCapital  model.totalData.TotalCapital) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='数据解锁金额' icon='users-16px_single-body' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.DataSum}}</h2>
+        {{ui-progress model.totalDataByMooth.DataSum subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.DataSum  model.totalData.DataSum) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.DataSum subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.DataSum  model.totalData.DataSum) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.DataSum subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.DataSum  model.totalData.DataSum) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='红包发放金额' icon='users-16px-2_a-heart' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.RedSum}}</h2>
+        {{ui-progress model.totalDataByMooth.RedSum subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.RedSum  model.totalData.RedSum) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.RedSum subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.RedSum  model.totalData.RedSum) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.RedSum subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.RedSum  model.totalData.RedSum) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+
+{{/ui-grid}}
+
+
+{{#data-table detailList=model.detailList title='支出明细' apiName='reqPaymentViewList' table-datas=(route-action 'getTableDatas') as |option|}}
+  {{ui-table option.detailList select=true currentRow=currentRow handleSort=(action option.handleSort)}}
+{{/data-table}}

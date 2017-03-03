@@ -1,0 +1,11 @@
+:global(.user-details) {
+  margin-top: 2rem;
+}
+
+:global(.users-control) {
+  display: flex;
+  align-items: center;
+  & :global(.ui-button) {
+    margin-right: 1rem;
+  }
+}

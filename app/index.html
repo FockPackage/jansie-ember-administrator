@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>administrator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    {{content-for "head"}}
+
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/administrator.css">
+
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/administrator.js"></script>
+
+    {{content-for "body-footer"}}
+    <div id="ember-basic-dropdown-wormhole"></div>
+  </body>
+</html>

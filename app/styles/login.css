@@ -1,0 +1,12 @@
+@import "custom";
+
+:global(.administrator-login) {
+  & :global(.login-form-header) {
+    & svg {
+      fill: var(--cool-blue);
+    }
+    & span {
+      margin-top: calc(var(--offset) / 2);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{{#ui-dropdown text=username
+               type='image'
+               image='https://mir-s3-cdn-cf.behance.net/project_modules/fs/9250f347058549.586ead0ac10f3.jpg'
+               radius='12'
+               iconSize='24'
+               viewBox='24'
+               horizontalPosition="right"}}
+  <div class="option-contents">
+    {{ui-item 'Your profile' icon='users-16px_circle-08' click=(action 'handleProfile')}}
+    {{ui-item 'Settings' icon='ui-16px-1_settings-gear-63' click=(action 'handleResetPwd')}}
+    {{ui-item 'Sign out' icon='media-16px-1_button-power' click=(action 'handleSignOut')}}
+  </div>
+{{/ui-dropdown}}

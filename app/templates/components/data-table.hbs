@@ -1,0 +1,24 @@
+{{#ui-pane icon='users-16px_single-body' iconColor='#8DABC4'
+           title=title
+           controlCustom=true as |item|}}
+  {{#if (eq item 'control')}}
+    <div class='users-control'>
+      {{ui-item currentRow.UserName}}
+
+      {{ui-pagination count=totalPage currentPage=currentPage
+                      handlePrePage=(action 'handlePrePage')
+                      handleNextPage=(action 'handleNextPage')
+                      handleSelectIndex=(action 'handleSelectIndex')
+                      handleSearch=(action 'handleSearch')}}
+    </div>
+  {{else if (eq item 'content')}}
+    {{yield (hash
+              detailList=detailList
+              pageIndexs=pageIndexs
+              currentPage=currentPage
+              searchValue=searchValue
+              handleSort=(action 'handleSort')
+              handlerefreshCurrentpage=(action 'handlerefreshCurrentpage')
+            )}}
+  {{/if}}
+{{/ui-pane}}

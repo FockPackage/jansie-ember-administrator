@@ -1,0 +1,37 @@
+{{#if (device 'mobile')}}
+  {{#ui-dropdown class='sidebar-menu'
+                 color='lime'
+                 size='floating'
+                 icon='business-16px_chart-bar-32'
+                 renderInPlace=true
+                 verticalPosition='above'
+                 horizontalPosition="auto"}}
+    <div class="option-contents">
+      {{ui-item '数据面板' icon='business-16px_chart-bar-32' route='dashboard.index'}}
+      {{ui-item '收入' icon='business-16px_currency-dollar' route='dashboard.income'}}
+      {{ui-item '支出' icon='business-16px_currency-dollar' route='dashboard.payment'}}
+      {{ui-item '用户' icon='users-16px_single-body' route='dashboard.users'}}
+      {{ui-item '问卷' icon='files-16px_single-content-03' route='dashboard.form'}}
+      {{ui-item '访问量' icon='health-16px_humidity-52' route='dashboard.utilization'}}
+      {{ui-item '题型' icon='health-16px_humidity-52' route='dashboard.node'}}
+    </div>
+  {{/ui-dropdown}}
+  {{else}}
+  {{#ui-sidebar width='200px' position='left' class='site-sidebar' toggleShow=true slide-enable=true}}
+    {{#ui-sections}}
+      {{ui-item '数据面板' icon='business-16px_chart-bar-32' route='dashboard.index'}}
+      {{ui-item '收入' icon='business-16px_currency-dollar' route='dashboard.income'}}
+      {{ui-item '支出' icon='business-16px_currency-dollar' route='dashboard.payment'}}
+      {{ui-item '用户' icon='users-16px_single-body' route='dashboard.users'}}
+      {{ui-item '问卷' icon='files-16px_single-content-03' route='dashboard.form'}}
+      {{ui-item '访问量' icon='health-16px_humidity-52' route='dashboard.utilization'}}
+      {{ui-item '题型' icon='health-16px_humidity-52' route='dashboard.node'}}
+    {{/ui-sections}}
+  {{/ui-sidebar}}
+{{/if}}
+<div class='global-container'>
+  <div class='global-wrapper'>
+    {{outlet}}
+  </div>
+  {{site-footer}}
+</div>

@@ -1,0 +1,45 @@
+{{#site-header title='问卷数据'}}
+  {{ui-icon 'files-16px_single-content-03' 32}}
+{{/site-header}}
+{{#ui-grid}}
+  <div class='column trisector'>
+    {{#ui-pane title='问卷数量' icon='users-16px_single-body' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.QuesCount}}</h2>
+        {{ui-progress model.totalDataByMooth.QuesCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.QuesCount  model.totalData.QuesCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.QuesCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.QuesCount  model.totalData.QuesCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.QuesCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.QuesCount  model.totalData.QuesCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='发布数量' icon='business-16px_building' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.OnlineCount}}</h2>
+        {{ui-progress model.totalDataByMooth.OnlineCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.OnlineCount  model.totalData.OnlineCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.OnlineCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.OnlineCount  model.totalData.OnlineCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.OnlineCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.OnlineCount  model.totalData.OnlineCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+  <div class='column trisector'>
+    {{#ui-pane title='未发布数量' icon='users-16px-2_a-heart' iconColor='#8DABC4'}}
+      <section>
+        <h2>{{add-commas model.totalData.PublishCount}}</h2>
+        {{ui-progress model.totalDataByMooth.PublishCount subLabel='Month' size='tiny' color='purple' progress=(division model.totalDataByMooth.PublishCount  model.totalData.PublishCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByWeek.PublishCount subLabel='Week' size='tiny' custom="#26C2C9" progress=(division model.totalDataByWeek.PublishCount  model.totalData.PublishCount) percent=true position='out'}}
+        {{ui-progress model.totalDataByDay.PublishCount subLabel='Day' size='tiny' custom="#FACA00" progress=(division model.totalDataByDay.PublishCount  model.totalData.PublishCount) percent=true position='out'}}
+      </section>
+    {{/ui-pane}}
+  </div>
+{{/ui-grid}}
+
+
+{{#data-table detailList=model.detailList title='问卷列表' apiName='reqFormDetailList' table-datas=(route-action 'getTableDatas') as |option|}}
+  {{dashboard/form-data-table
+    detailList=option.detailList
+    pageIndexs=option.pageIndexs
+    currentPage=option.currentPage
+    handleSort=(action option.handleSort)
+    handlerefreshCurrentpage=(action option.handlerefreshCurrentpage)}}
+{{/data-table}}

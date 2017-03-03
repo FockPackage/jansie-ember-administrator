@@ -1,0 +1,29 @@
+{{#ui-pane icon='users-16px_single-body' iconColor='#8DABC4'
+           title='题型使用次数'
+           controlCustom=true as |item|}}
+  {{#if (eq item 'control')}}
+    <div class='users-control'>
+      {{ui-item currentRow.UserName}}
+      {{ui-button icon='arrows-16px-1_minimal-left' click=(action handlePrePage)}}
+      {{ui-button icon='arrows-16px-1_minimal-right' click=(action handleNextPage)}}
+      {{#ui-dropdown text=(sum currentPage 1)
+                 color='stroked'
+                 size ='medium'
+                 icon='arrows-16px-1_share-91'
+                 horizontalPosition="left"}}
+        <div class="option-contents">
+          {{#each pageIndexs as |item|}}
+            {{ui-item
+                (sum item 1)
+                onClick=(action handleSelectIndex item)
+              }}
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+
+      {{ui-input placeholder='User Search' icon='ui-16px-1_zoom' inside='inside' onEnter=(action handleUserSearch)}}
+    </div>
+  {{else if (eq item 'content')}}
+    {{ui-table detailList select=true currentRow=currentRow handleSort=(action handleSort)}}
+  {{/if}}
+{{/ui-pane}}
